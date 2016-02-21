@@ -7,7 +7,7 @@ import java.util.Hashtable;
 import java.util.Scanner;
 
 /**
- * @author snaoleka
+ * @author snaolekar
  *
  */
 class Ships
@@ -364,7 +364,7 @@ public class Battleshipgame {
 				turn=1;
 			}
 		}
-		
+		input.close();
 	}
 
 }

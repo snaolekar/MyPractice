@@ -6,7 +6,7 @@ package TestProblmes;
 import java.util.Arrays;
 
 /**
- * @author snaoleka
+ * @author snaolekar
  *
  */
 public class FeboncahiUsingDP {

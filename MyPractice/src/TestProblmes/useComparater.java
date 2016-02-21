@@ -7,7 +7,7 @@ import java.util.Arrays;
 import java.util.Comparator;
 
 /**
- * @author snaoleka
+ * @author snaolekar
  *
  */
 public class useComparater {

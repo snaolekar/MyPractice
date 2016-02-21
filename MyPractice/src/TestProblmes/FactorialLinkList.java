@@ -38,6 +38,7 @@ public class FactorialLinkList {
      System.out.println(fact.toString());
      int random = (int)Math.ceil(12*Math.random());
      System.out.println(random);
+     input.close();
 	}
 
 }
