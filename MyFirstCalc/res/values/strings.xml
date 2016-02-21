@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyFirstCalc</string>
+    <string name="action_settings">Settings</string>
+    <string name="calcBillText">Bill Amount</string>
+    <string name="calcBillEditText">0.0</string>
+    <string name="calcTipText">Tip</string>
+    <string name="calcTipEditText">.15</string>
+    <string name="billFinalText">Final Amount</string>
+    <string name="billFinalEditText">0.0</string>
+    <string name="calcTipSlider">tipSlider</string>
+    
+
+</resources>

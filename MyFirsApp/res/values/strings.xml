@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">MyFirsApp</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="textView1">Enter a Message</string>
+    <string name="send_button">send_message</string>
+    <string name="title_activity_display_messae">DisplayMessaeActivity</string>
+
+</resources>

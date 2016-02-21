@@ -1,0 +1,81 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="com.np.myfirstcalc.CalcMainActivity$PlaceholderFragment" >
+
+    <TextView
+        android:id="@+id/calcBillText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:text="@string/calcBillText" />
+
+    <EditText
+        android:id="@+id/calcTipEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/calcTipText"
+        android:layout_alignBottom="@+id/calcTipText"
+        android:layout_alignLeft="@+id/calcBillEditText"
+        android:ems="4"
+        android:inputType="numberDecimal"
+        android:text="@string/calcTipEditText" />
+
+    
+
+
+    <TextView
+        android:id="@+id/calcTipText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/calcBillText"
+        android:layout_below="@+id/calcBillEditText"
+        android:layout_marginTop="18dp"
+        android:text="@string/calcTipText" />
+
+    <TextView
+        android:id="@+id/billFinalText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/calcTipText"
+        android:layout_below="@+id/calcTipEditText"
+        android:layout_marginTop="34dp"
+        android:text="@string/billFinalText" ></TextView>
+
+    <TextView
+        android:id="@+id/calcTipSliderText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/billFinalText"
+        android:layout_below="@+id/billFinalEditText"
+        android:layout_marginTop="38dp"
+        android:text="@string/calcTipSlider" />
+
+    <SeekBar
+        android:id="@+id/calcTipSeekBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/calcTipSliderText"
+        android:layout_centerVertical="true"
+        android:progress="15" />
+
+    <EditText
+        android:id="@+id/billFinalEditText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBaseline="@+id/billFinalText"
+        android:layout_alignBottom="@+id/billFinalText"
+        android:layout_alignLeft="@+id/calcTipEditText"
+        android:ems="5"
+        android:inputType="numberDecimal"
+        android:text="@string/billFinalEditText" />
+
+<EditText android:id="@+id/calcBillEditText" android:layout_width="wrap_content" android:layout_height="wrap_content" android:layout_alignTop="@+id/calcBillText" android:layout_marginLeft="53dp" android:layout_toRightOf="@+id/calcBillText" android:ems="5" android:inputType="numberDecimal" android:text="@string/calcBillEditText" /></RelativeLayout>
