@@ -127,6 +127,24 @@ public class BSTExample {
 			}
 		}
 }
+
+
+Boolean BSTHelper(TreeNode root, int min, int max){
+	if(root == null)
+		return true;
+
+	System.out.println("MIN:"+min+":MAX:"+max);
+	if(root.data < min || root.data > max)
+		return false;
+	return (BSTHelper(root.leftChild, min, root.data) && BSTHelper(root.rightChild, root.data, max));
+}
+
+int isBST(TreeNode root)  
+{
+	if(BSTHelper(root, Integer.MIN_VALUE, Integer.MAX_VALUE))
+		return 1;
+	return 0;
+}
 	/**
 	 * @param args
 	 */
@@ -149,7 +167,8 @@ public class BSTExample {
     System.out.println("-----------------------");
     System.out.println("Postorder Traversal...");
     bst.postOrderTreversal(bst.getRoot());
-    System.out.println("-----------------------");
+		System.out.println("-----------------------");
+		System.out.println(bst.isBST(bst.getRoot()));
 
 	}
 

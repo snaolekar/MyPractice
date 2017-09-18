@@ -98,19 +98,70 @@ public class Question {
             if(prev == null)
                 System.out.print(root.data+" ");
         }
-        else{
+        else if(prev != null){
             q.add(null);
         }
         prev=root;
       }
       return ;
     }
+    static int maxLevel=0 ;
+    
+    static void rightViewOptimize(Node root,int level){
+        if(root == null)
+        return;
+        if(level > maxLevel){
+            System.out.print(root.data+" ");
+            maxLevel= level;
+        }
+        if(root.right !=null)
+            rightViewOptimize(root.right, level+1);
+        if(root.left !=null)
+            rightViewOptimize(root.left, level+1);
+        return ;
+    }
+
+    static void printSpiral(Node node) 
+    {
+        if(node==null)
+        return;
+        Stack<Integer> s= new Stack<Integer>();
+        Queue<Node> q= new LinkedList<Node>();
+        int level=1;
+        q.add(node);
+        q.add(null);
+        Node prv= null;
+        while(!q.isEmpty()){
+            node= q.remove();
+            if(node==null && prv !=null){
+               if(level%2 ==1){
+                  while(!s.isEmpty())
+                      System.out.print(s.pop()+" ");
+               }
+              System.out.println();
+              level++;
+              q.add(node);
+            }
+            else if(node !=null){
+                if(node.left !=null)
+                  q.add(node.left);
+              if(node.right !=null)
+                  q.add(node.right);
+              if(level%2==0)
+                  System.out.print(node.data+" ");
+              else
+                  s.push(node.data);
+            }
+            prv=node;
+        }
+        
+    }
     public static void main(String[] args) {
         Node tree = new Node(1);
         Node two = new Node(2);
-        tree.addLeft(two);
+        tree.addRight(two);
         Node three = new Node(3);
-        tree.addRight(three);
+        tree.addLeft(three);
         Node four = new Node(4);
         two.addLeft(four);
         Node five = new Node(5);
@@ -126,8 +177,12 @@ public class Question {
         four.addLeft(seven);
         four.addRight(ei);
         Node el= new Node(11);
-        ni.addLeft(el);
+        ni.addLeft(el); 
         Question.printExtremeNodes(tree);
         Question.leftView(tree);
+        Question.rightViewOptimize(tree,1);
+        System.out.println("------ Spiral -----");
+        Question.printSpiral(tree);
+        System.out.println("TEST");
     }
 }
