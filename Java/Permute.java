@@ -15,6 +15,19 @@ public class Permute {
          }
         }
     } 
+
+    public void printPerMute(char[] str, int l , int r ){
+     if(l==r)
+        printArr(str, r);
+     else{
+         for(int i=l;i<=r;i++){
+             str=swap(str,l,i);
+             printPerMute(str,l+1,r);
+             str=swap(str,l,i);
+         }
+
+        }
+    }
     char[] swap(char[] str,int i, int j){
         char ch= str[i];
         str[i]=str[j];
