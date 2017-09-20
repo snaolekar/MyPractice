@@ -29,57 +29,51 @@ class Node {
 };
 
 public class Question {
-    static void printExtremeNodes(Node root) {
-        int level = 1;
-        Node lastNode;
-        Queue<Node> qn = new LinkedList<Node>();
-        Stack<Integer> st = new Stack<Integer>();
-        System.out.println(root.data);
-        qn.add(null);
-        Node temp;
-        temp = root.getLeftChild();
-        if (temp != null)
-            qn.add(temp);
-        temp = root.getRightChild();
-        if (temp != null)
-            qn.add(temp);
-        qn.add(null);
-        lastNode = qn.remove(); // null is the value right now
-        while (!qn.isEmpty()) {
-            root = qn.remove();
-            if (lastNode == null) {
-                if(root ==null)
-                    return;
-                if (level % 2 == 1)
-                    st.push(root.data); //extream left node
-                else
-                    System.out.print(root.data + " ");
+    static void printExtremeNodes(Node node) {
+        if(node == null)
+            return ;
+        Node st= null;
+        Queue<Node> q= new LinkedList<Node>();
+        int level=1;
+        q.add(node);
+        q.add(null);
+        Node prvPrint=null;
+        Node prv= null;
+        while(!q.isEmpty()){
+            node= q.remove();
+            if(node==null && prv !=null){
+               if(level%2 ==1){
+                System.out.print(prv.data+" ");
+                prvPrint= prv;
+                if(st != prvPrint)
+                System.out.print(st.data+" ");
+               }
+               else{
+                   if(prv != prvPrint)
+                    System.out.print(prv.data);
+               }
+               System.out.println();
+              level++;
+              q.add(node);
             }
-            if (root == null) {
-                if (level % 2 == 1)
-                    st.push(lastNode.data); //extream right node
-                else
-                    System.out.print(lastNode.data + " ");
-                if (level % 2 == 1) {
-                    while (!st.empty()) {
-                        System.out.print(st.pop() + " ");
-                    }
+            else if(node !=null){
+                if(node.left !=null)
+                  q.add(node.left);
+                if(node.right !=null)
+                    q.add(node.right);
+                if(prv==null){
+                if(level%2==0){
+                    System.out.print(node.data+" ");
+                    prvPrint= node ;
                 }
-                level++;
+                else
+                    st= node;
+                }
             }
-            lastNode = root;
-            if (root == null) {
-                qn.add(null);
-                System.out.println();
-            } else {
-                temp = root.getLeftChild();
-                if (temp != null)
-                    qn.add(temp);
-                temp = root.getRightChild();
-                if (temp != null)
-                    qn.add(temp);
-            }
+            prv=node;
         }
+        
+    
     }
     static void leftView(Node root)
     {
@@ -121,6 +115,19 @@ public class Question {
         return ;
     }
 
+    static void mirror(Node node){
+        if(node==null)
+        return;
+        Node temp=null;
+        temp= node.left ;
+        node.left= node.right;
+        node.right= temp;
+        if(node.left !=null)
+            mirror(node.left);
+        if(node.right !=null)
+            mirror(node.right);
+        return ;
+    }
     static void printSpiral(Node node) 
     {
         if(node==null)
@@ -156,6 +163,31 @@ public class Question {
         }
         
     }
+    static void lot(Node node) 
+    {
+        if(node==null)
+        return;
+        Queue<Node> q= new LinkedList<Node>();
+        q.add(node);
+        q.add(null);
+        Node prv= null;
+        while(!q.isEmpty()){
+            node= q.remove();
+            if(node==null && prv !=null){
+              System.out.println();
+              q.add(node);
+            }
+            else if(node !=null){
+                if(node.left !=null)
+                  q.add(node.left);
+              if(node.right !=null)
+                  q.add(node.right);
+              System.out.print(node.data+" ");
+            }
+            prv=node;
+        }
+    }
+
     public static void main(String[] args) {
         Node tree = new Node(1);
         Node two = new Node(2);
@@ -183,6 +215,9 @@ public class Question {
         Question.rightViewOptimize(tree,1);
         System.out.println("------ Spiral -----");
         Question.printSpiral(tree);
-        System.out.println("TEST");
+        Question.lot(tree);
+        Question.mirror(tree);
+        Question.lot(tree);
+
     }
 }
