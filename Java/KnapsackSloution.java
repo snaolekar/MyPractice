@@ -9,11 +9,14 @@ public class KnapsackSloution {
 	/**
 	 * @param args
 	 */
-	static final int capacity= 280;
-	static final int limit= 400 ;
-	static int[] weight= {70,60,50,40,30,20,10,10,1,12,43,45,76,43,12,43,54,75,24,42,543};
-	static int[] value= {260,245,200,100,80,65,60,60,10,43,45,57,43,12,65,324,345,23,12,543,123};
-	static int includeItem[]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
+	//static final int capacity= 280;
+	static final int capacity= 4;
+	static int[] value= {1,2,3};
+	static int[] weight= {4,5,1};
+	static int includeItem[]={0,0,0};
+	//static int[] weight= {70,60,50,40,30,20,10,10,1,12,43,45,76,43,12,43,54,75,24,42,543};
+	//static int[] value= {260,245,200,100,80,65,60,60,10,43,45,57,43,12,65,324,345,23,12,543,123};
+	//static int includeItem[]={0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0};
 	static int maxSum=0;
     static Hashtable<String, Integer> solutionMap = new Hashtable<String, Integer>();
 	
@@ -42,7 +45,6 @@ public class KnapsackSloution {
 	}
 	public static void main(String[] args) {
 		int weighttotal= 0;
-		 long startTime = System.currentTimeMillis();
 		Knapsack(includeItem,capacity,0);
 		System.out.println(maxSum);
 		System.out.println(Arrays.toString(includeItem));
@@ -51,13 +53,9 @@ public class KnapsackSloution {
 			if(includeItem[i]==1)
 			{
 				weighttotal=weighttotal+weight[i];
-				//System.out.println(weight[i]);
 			}
 		}
-		long stopTime = System.currentTimeMillis();
-	    long elapsedTime = stopTime - startTime;
 	    System.out.println("total Weight"+weighttotal);
-	    System.out.println(elapsedTime);
 	}
 	
 }

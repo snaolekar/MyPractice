@@ -1,26 +1,21 @@
 import java.util.* ;
 /*Vhiclel
  */
-
+//devision of spots
 enum SIZE{
     LARGE,
     MEDIUM,
     SMALL
 }
 
-enum VEHICLETYPE{
-    BUS,
-    CAR,
-    BIKE
-}
-
 class Vehicle {
-    VEHICLETYPE type;
     Date entryTime ;
     Date exitTime ;
     int payable ;
+    int type; //1 for small car, 2 for medium and 3 for large cars
     String numberPlat ;
-    public VEHICLETYPE getType(){
+
+    public int getType(){
         return this.type ;
     }
     public Date getEntryTime(){
@@ -32,7 +27,7 @@ class Vehicle {
     public Date getExitTime(){
         return this.exitTime ;
     }
-    public void setExitTime(Date entryTime){ // for book keeping
+    public void setExitTime(Date entryTime){ // for book keeping 
         this.exitTime = exitTime;
     }
     public int getPayable(){
@@ -41,7 +36,7 @@ class Vehicle {
     public void setPayable(int pay){
         this.payable = pay ;
     }
-    public Vehicle(VEHICLETYPE type, SIZE size, String numberPlat, Date entryTime){
+    public Vehicle(int type, String numberPlat, Date entryTime){
         this.type = type ;
         this.entryTime= entryTime ;
         this.numberPlat= numberPlat ;
@@ -101,20 +96,17 @@ abstract class ParkingSpot{
      public Boolean getIsReserve(){
          return this.isReserve ;
      }
-     public void display(){
-         System.out.println("I am Large Parking Spot");
-     }
  }
  class MediumSPOT extends ParkingSpot{
-     Boolean isVIP ;
+     Boolean isReserve ;
      public MediumSPOT(){
          setStatus(true);
      }
      public void setIsVIP(Boolean rq){
-         this.isVIP=rq;
+         this.isReserve=rq;
      }
-     public Boolean getIsVIP(){
-         return this.isVIP ;
+     public Boolean getIsReserved(){
+         return this.isReserve ;
      }
  }
  class SmallSPOT extends ParkingSpot{
@@ -124,16 +116,20 @@ abstract class ParkingSpot{
  }
 
  public class ParkingLot {
-    ArrayList<SmallSPOT> sParking ;
-    ArrayList<MediumSPOT> mParking ;
-    ArrayList<LargeSPOT> lParking ;
-    int sCap,mCap,lCap ;
-    int sCharge,mCharge,lCharge ;
+   // ArrayList<SmallSPOT> sParking ;
+   // ArrayList<MediumSPOT> mParking ;
+   // ArrayList<LargeSPOT> lParking ;
+    int sCap,mCap,lCap ; //capasity of different spots in building
+    int sCharge,mCharge,lCharge ; // charges decided by the  owner
+    SmallSPOT sParking[]=new SmallSPOT[sCap];
+    MediumSPOT mParking[]=new MediumSPOT[mCap];
+    LargeSPOT lParking[]=new LargeSPOT[lCap];
     public ParkingLot (int sCap, int mCap,int lCap) {
         this.sCap= sCap;
         this.mCap= mCap;
         this.lCap= lCap ;
     }
+    //To check the avaliability, synchrinize because many entry points are possible 
     public synchronized int getSmallCap(){
         return this.sCap;
     }
@@ -153,7 +149,11 @@ abstract class ParkingSpot{
         this.lCap--;
     }
     public static void main(String[] args) {
-        ParkingSpot pk= ParkingSpot.createParkingSpot(SIZE.LARGE);
-        if(pk instanceof LargeSPOT) ((LargeSPOT)pk).display();
+        ParkingLot pl= new ParkingLot(100, 100, 100);
+        Vehicle v1= new Vehicle(1, "ABCD1234", new Date());
+        if(pl.getSmallCap()>0){
+            pl.consumeSmallCap();
+        }
+
     }
 }

@@ -6,7 +6,7 @@ public class KMPAlgo {
 	/**
 	 * @param args
 	 */
-	static char[] pattern ="ababa".toCharArray();
+	static char[] pattern ="rwrw".toCharArray();
 	static char[] input ="rwrwrqrwr32r23rwefwerfr3rwef32r32r".toCharArray() ;
 	static int matchArr[]= {0,0,0,0,0};
 	static void createMatch()

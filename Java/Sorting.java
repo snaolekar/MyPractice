@@ -61,17 +61,27 @@ public class  Sorting {
     int pv= arr[l]; // first element as pivot
     int start= l;
     int end=r;
-    ++l;
-    while (l<=r) {
-      while(l<=r && arr[l++]<pv);
-      while(l<=r && arr[r--]>=pv); //since I am swapping with r need to execute this once 
-      if(l<r){
+    if(l+1==r){ //special handeling for 2 elelent list
+      if(arr[l]> arr[r]){
         swap(arr,l,r);
+      }
         l++;
         r--;
+    }else{
+      ++l;
+      while (l < r) {
+        while (l < r && arr[l] < pv)
+          l++;
+        while (l < r && arr[r] > pv) //since I am swapping with r need to execute this once 
+          r--;
+        if (l < r) {
+          swap(arr, l, r);
+          l++;
+          r--;
+        }
       }
-  }
-  swap(arr,start,r);
+      swap(arr, start, r);
+    }
   if(start<r)
     quickSort(arr,start,r-1);
   if(end>r)
@@ -84,6 +94,29 @@ void swap(int arr[],int i, int j){
     arr[j]=temp ;
   }
 
+  //Minmum swaps
+ int findMinIndex(int[] A,int i,int N){
+    int min=A[i];
+    int minInd=i;
+    for(int j=i+1;j<N;j++){
+        if(A[j]<min){
+            min=A[j];
+            minInd=j;
+        }
+    }
+    A[minInd]=A[i];
+    A[i]=min;
+    return minInd;
+}
+int minSwaps(int[] A, int N)
+{
+  int count=0;
+  for(int i=0;i<N;i++){
+     if(i!=findMinIndex(A,i,N))
+      count++;
+  }
+  return count;
+}
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in) ;
     int size=0;
@@ -134,6 +167,11 @@ void swap(int arr[],int i, int j){
     }
     System.out.println();
     System.out.println("Result of Insertion Sort");
+    int srr[]= new int[size];
+    for(int i=0;i<size;i++){
+      srr[i]=arr[i];
+    }
+    System.out.println("Minimus swaps required"+qn.minSwaps(srr, size));
     qn.insertionSort(arr,size);
     for(int i=0;i<size;i++){
       System.out.print(arr[i]+" ");

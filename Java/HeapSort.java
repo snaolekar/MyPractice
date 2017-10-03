@@ -1,10 +1,11 @@
+import java.util.*;
 /**
  * Hert
  */
 //assumaxg index from 1 for heap
 //create maxHeap and sort
 public class HeapSort {
- static int arr[]={3,8,9,6,2,7};
+ static int arr[]=new int [5];
  static int size= arr.length-1;
  void buildHeap(){
      for(int i=(size-1)/2;i>=0;i--){
@@ -50,7 +51,7 @@ public class HeapSort {
         return ;
     swap(0,size);
     heapify(0,size-1);
-    printArr(); 
+    //printArr(); 
     printSorted(size-1);
  }
  void printArr(){
@@ -58,10 +59,28 @@ public class HeapSort {
     System.out.print(ls+" ");
     System.out.println();
 }
+void insert(int el){
+    if(arr[0] < el)
+        return ;
+    else
+     arr[0]=el;
+     heapify(0, size);
+    
+}
 public static void main(String[] args) {
+    Scanner sc= new Scanner(System.in);
+    for(int i=0;i<5;i++)
+        arr[i]=sc.nextInt();
     HeapSort hs= new HeapSort();
     hs.buildHeap();    
     hs.printArr(); 
+    int element=sc.nextInt();
+    while(element!=-1){
+        hs.insert(element);
+        element=sc.nextInt();
+    }
+    System.out.println("5th smallest element"+arr[0]);
+    sc.close();
     hs.printSorted(size);  
     hs.printArr(); 
 }

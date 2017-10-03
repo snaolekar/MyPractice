@@ -19,5 +19,6 @@ public class Prime {
    if(num >2)
     System.out.print(num); 
   System.out.println();
+  sc.close();
   }
 }

@@ -29,6 +29,7 @@ class Node {
 };
 
 public class Question {
+    //-------------------------------------------------------------------
     static void printExtremeNodes(Node node) {
         if(node == null)
             return ;
@@ -75,6 +76,39 @@ public class Question {
         
     
     }
+
+    //-------------------------------------------------------------------
+    static Map <Integer, LinkedList<Integer>> _orderMap = new TreeMap<Integer, LinkedList<Integer>>();
+    static void verticalUtil(Node root, int hd){
+        if(_orderMap.containsKey(hd)){
+            LinkedList<Integer> ll= _orderMap.get(hd);
+            ll.add(root.data);
+            _orderMap.put(hd,ll);
+        }
+        else{
+            LinkedList<Integer> ll= new LinkedList<Integer>();
+            ll.add(root.data);
+            _orderMap.put(hd,ll);
+        }
+        if(root.left !=null)
+            verticalUtil(root.left, hd-1);
+        if(root.right !=null)
+            verticalUtil(root.right, hd+1);
+
+    }
+    static void verticalOrder(Node root){
+        if(root == null)
+        return ;
+        verticalUtil(root, 0);
+        for(Map.Entry<Integer, LinkedList<Integer>>entry : _orderMap.entrySet()){
+            for (int i : entry.getValue()){
+                System.out.print(i+" ");
+            }
+            System.out.print("$");
+        }
+    }
+
+    //-------------------------------------------------------------------
     static void leftView(Node root)
     {
         //levle order traversal 
@@ -99,8 +133,9 @@ public class Question {
       }
       return ;
     }
+
+    //-------------------------------------------------------------------
     static int maxLevel=0 ;
-    
     static void rightViewOptimize(Node root,int level){
         if(root == null)
         return;
@@ -115,6 +150,7 @@ public class Question {
         return ;
     }
 
+    //-------------------------------------------------------------------
     static void mirror(Node node){
         if(node==null)
         return;
@@ -128,6 +164,8 @@ public class Question {
             mirror(node.right);
         return ;
     }
+
+    //-------------------------------------------------------------------
     static void printSpiral(Node node) 
     {
         if(node==null)
@@ -163,6 +201,8 @@ public class Question {
         }
         
     }
+
+    //-------------------------------------------------------------------
     static void lot(Node node) 
     {
         if(node==null)
@@ -188,6 +228,51 @@ public class Question {
         }
     }
 
+    //------------------------------------------------------------------- Good Qn
+    static int max_dia=0;
+    static int diameter(Node node){
+        diameterUtil(node);
+        return max_dia ;
+    }
+    static int diameterUtil(Node node)
+    {
+        if (node==null)
+            return 0;
+        if(node.left ==null && node.right ==null)
+            return 1;
+        int lsd = diameterUtil(node.left);
+        int rsd = diameterUtil(node.right);
+        if(node.left !=null && node.right !=null){
+            int max = Math.max(lsd+1,rsd+1);
+            int maxd = lsd+rsd+1;
+            if(maxd > max_dia)
+                max_dia= maxd;
+            return max ;
+        }
+        return node.left ==null ? rsd+1 : lsd+1 ;
+    }
+
+    //------------------------------------------------------------------- Good Qn
+    static int maxSum= Integer.MIN_VALUE ;
+    static int maxSum(Node root){
+        if(root == null)
+            return 0;
+        if(root.left == null && root.right == null )
+            return root.data;
+    
+        int ls= maxSum(root.left);
+        int rs= maxSum(root.right);
+            
+        if(root.left !=null && root.right != null){
+            int max= Math.max(ls+root.data, rs+root.data);
+            int sum= ls+rs+root.data ;
+            if(sum > maxSum)
+                maxSum=sum;
+            return max ;
+        }
+        return root.left == null ? rs+root.data : ls+root.data ;
+    }
+    //-------------------------------------------------------------------
     public static void main(String[] args) {
         Node tree = new Node(1);
         Node two = new Node(2);
@@ -215,9 +300,17 @@ public class Question {
         Question.rightViewOptimize(tree,1);
         System.out.println("------ Spiral -----");
         Question.printSpiral(tree);
+        System.out.println("------ Vertical Order -----");
+        verticalOrder(tree);
+        System.out.println("------ Tree Order -----");
         Question.lot(tree);
         Question.mirror(tree);
+        System.out.println("------ Mirror Tree Order -----");
         Question.lot(tree);
-
+        System.out.println("------ MaxSum-----");
+        Question.maxSum(tree);
+        System.out.println(maxSum);
+        System.out.println("------ MaxSum-----");
+        System.out.println(Question.diameter(tree));
     }
 }
