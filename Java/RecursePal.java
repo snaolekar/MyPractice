@@ -9,6 +9,16 @@ public class RecursePal {
   static Boolean isPelandrom(char[] str, int i, int j){
     if(i==j)  
       return true;
+    if((j-i) == 1){
+      if(str[i]==str[j]){
+        prr[i][j]=true;
+        return true;
+      }
+      else{
+        prr[i][j]=false;
+       return false;
+      }
+    }
     if(prr[i+1][j-1]==true){
       if(str[i]==str[j]){
         prr[i][j]=true;
