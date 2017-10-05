@@ -32,5 +32,6 @@ public class RecursePalPart {
     for(int i=0;i<len;i++)
       arr[i][i]=1;
     System.out.println(findPalendromCuts(input,0,len-1));
+    sc.close();
   }
 }
