@@ -1,45 +1,45 @@
 import java.util.*;
 
-class Node {
+class ANode {
     int data;
-    Node left;
-    Node right;
+    ANode left;
+    ANode right;
 
-    public Node(int data) {
+    public ANode(int data) {
         this.data = data;
         this.left = null;
         this.right = null;
     }
 
-    public Node getLeftChild() {
+    public ANode getLeftChild() {
         return this.left;
     }
 
-    public Node getRightChild() {
+    public ANode getRightChild() {
         return this.right;
     }
 
-    public void addLeft(Node r) {
+    public void addLeft(ANode r) {
         this.left = r;
     }
 
-    public void addRight(Node r) {
+    public void addRight(ANode r) {
         this.right = r;
     }
 };
 
 public class Question {
     //-------------------------------------------------------------------
-    static void printExtremeNodes(Node node) {
+    static void printExtremeANodes(ANode node) {
         if(node == null)
             return ;
-        Node st= null;
-        Queue<Node> q= new LinkedList<Node>();
+        ANode st= null;
+        Queue<ANode> q= new LinkedList<>();
         int level=1;
         q.add(node);
         q.add(null);
-        Node prvPrint=null;
-        Node prv= null;
+        ANode prvPrint=null;
+        ANode prv= null;
         while(!q.isEmpty()){
             node= q.remove();
             if(node==null && prv !=null){
@@ -78,15 +78,15 @@ public class Question {
     }
 
     //-------------------------------------------------------------------
-    static Map <Integer, LinkedList<Integer>> _orderMap = new TreeMap<Integer, LinkedList<Integer>>();
-    static void verticalUtil(Node root, int hd){
+    static Map <Integer, LinkedList<Integer>> _orderMap = new TreeMap<>();
+    static void verticalUtil(ANode root, int hd){
         if(_orderMap.containsKey(hd)){
             LinkedList<Integer> ll= _orderMap.get(hd);
             ll.add(root.data);
             _orderMap.put(hd,ll);
         }
         else{
-            LinkedList<Integer> ll= new LinkedList<Integer>();
+            LinkedList<Integer> ll= new LinkedList<>();
             ll.add(root.data);
             _orderMap.put(hd,ll);
         }
@@ -96,7 +96,7 @@ public class Question {
             verticalUtil(root.right, hd+1);
 
     }
-    static void verticalOrder(Node root){
+    static void verticalOrder(ANode root){
         if(root == null)
         return ;
         verticalUtil(root, 0);
@@ -109,11 +109,11 @@ public class Question {
     }
 
     //-------------------------------------------------------------------
-    static void leftView(Node root)
+    static void leftView(ANode root)
     {
         //levle order traversal 
-      Queue<Node> q= new LinkedList<Node>();
-      Node prev=null;
+      Queue<ANode> q= new LinkedList<ANode>();
+      ANode prev=null;
       q.add(root);
       q.add(null);
       while(!q.isEmpty()){
@@ -136,7 +136,7 @@ public class Question {
 
     //-------------------------------------------------------------------
     static int maxLevel=0 ;
-    static void rightViewOptimize(Node root,int level){
+    static void rightViewOptimize(ANode root,int level){
         if(root == null)
         return;
         if(level > maxLevel){
@@ -151,10 +151,10 @@ public class Question {
     }
 
     //-------------------------------------------------------------------
-    static void mirror(Node node){
+    static void mirror(ANode node){
         if(node==null)
         return;
-        Node temp=null;
+        ANode temp=null;
         temp= node.left ;
         node.left= node.right;
         node.right= temp;
@@ -166,16 +166,16 @@ public class Question {
     }
 
     //-------------------------------------------------------------------
-    static void printSpiral(Node node) 
+    static void printSpiral(ANode node) 
     {
         if(node==null)
         return;
         Stack<Integer> s= new Stack<Integer>();
-        Queue<Node> q= new LinkedList<Node>();
+        Queue<ANode> q= new LinkedList<ANode>();
         int level=1;
         q.add(node);
         q.add(null);
-        Node prv= null;
+        ANode prv= null;
         while(!q.isEmpty()){
             node= q.remove();
             if(node==null && prv !=null){
@@ -203,14 +203,14 @@ public class Question {
     }
 
     //-------------------------------------------------------------------
-    static void lot(Node node) 
+    static void lot(ANode node) 
     {
         if(node==null)
         return;
-        Queue<Node> q= new LinkedList<Node>();
+        Queue<ANode> q= new LinkedList<ANode>();
         q.add(node);
         q.add(null);
-        Node prv= null;
+        ANode prv= null;
         while(!q.isEmpty()){
             node= q.remove();
             if(node==null && prv !=null){
@@ -230,11 +230,11 @@ public class Question {
 
     //------------------------------------------------------------------- Good Qn
     static int max_dia=0;
-    static int diameter(Node node){
+    static int diameter(ANode node){
         diameterUtil(node);
         return max_dia ;
     }
-    static int diameterUtil(Node node)
+    static int diameterUtil(ANode node)
     {
         if (node==null)
             return 0;
@@ -254,7 +254,7 @@ public class Question {
 
     //------------------------------------------------------------------- Good Qn
     static int maxSum= Integer.MIN_VALUE ;
-    static int maxSum(Node root){
+    static int maxSum(ANode root){
         if(root == null)
             return 0;
         if(root.left == null && root.right == null )
@@ -274,28 +274,28 @@ public class Question {
     }
     //-------------------------------------------------------------------
     public static void main(String[] args) {
-        Node tree = new Node(1);
-        Node two = new Node(2);
+        ANode tree = new ANode(1);
+        ANode two = new ANode(2);
         tree.addRight(two);
-        Node three = new Node(3);
+        ANode three = new ANode(3);
         tree.addLeft(three);
-        Node four = new Node(4);
+        ANode four = new ANode(4);
         two.addLeft(four);
-        Node five = new Node(5);
+        ANode five = new ANode(5);
         two.addRight(five);
-        Node six = new Node(6);
+        ANode six = new ANode(6);
         three.addRight(six);
-        Node seven = new Node(7);
-        Node ei = new Node(8);
-        Node ni= new Node(9);
-        Node tn= new Node(10);
+        ANode seven = new ANode(7);
+        ANode ei = new ANode(8);
+        ANode ni= new ANode(9);
+        ANode tn= new ANode(10);
         five.addRight(ni);
         six.addRight(tn);
         four.addLeft(seven);
         four.addRight(ei);
-        Node el= new Node(11);
+        ANode el= new ANode(11);
         ni.addLeft(el); 
-        Question.printExtremeNodes(tree);
+        Question.printExtremeANodes(tree);
         Question.leftView(tree);
         Question.rightViewOptimize(tree,1);
         System.out.println("------ Spiral -----");

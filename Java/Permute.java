@@ -45,5 +45,6 @@ public class Permute {
         String input= sc.nextLine();        
         Permute pm= new Permute();
         pm.permutation(input.toCharArray(),0,input.length() -1 );
+        sc.close();
     }
 }

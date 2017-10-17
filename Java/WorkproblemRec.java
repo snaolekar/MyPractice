@@ -41,5 +41,6 @@ public static void main(String[] args) {
       int sum= calculateManHour(man_work,0,status,N);
       System.out.println(sum);
     }
+    sc.close();
 }
 }

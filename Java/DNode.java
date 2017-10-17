@@ -14,7 +14,6 @@ public class DNode{
 static void printBottomView(DNode root){
   if (root == null)
   return;
-  int hd=0;
   root.hd=0;
   Map<Integer,Integer> _map= new TreeMap<Integer,Integer>() ;
   Queue <DNode> _tq = new LinkedList<DNode>();

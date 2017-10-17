@@ -4,6 +4,7 @@ class NewTest{
     Scanner sc= new Scanner(System.in);
     String inp= sc.next();
     System.out.println(getLargest(inp));
+    sc.close();
   }
  
   static int getLargest(String s){

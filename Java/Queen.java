@@ -66,6 +66,7 @@ class Queen {
 		    else
 		        System.out.println("-1");
 		
-	}
+    }
+    sc.close();
 }
 }

@@ -2,23 +2,21 @@ import java.util.*;
 /**
  * BuildTree
  */
-/*
 class Node {
   int data;
   Node left;
   Node right;
-  public Node(int data){
+  Node(int data){
     this.data = data;
     this.left = null;
     this.right = null ;
   }
-  public Node(){
+  Node(){
     this.data = 0;
     this.left = null;
     this.right = null ;
   }
 };
-*/
 public class BuildTree {
 
 static int [] tree={10,30,20,5,15};
