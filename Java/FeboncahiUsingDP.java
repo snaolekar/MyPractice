@@ -29,7 +29,7 @@ public class FeboncahiUsingDP {
 		// TODO Auto-generated method stub
 		feb[0]=0;
 		feb[1]=1 ;
-		System.out.println("10th fabonachi term"+febonachi(20));
+		System.out.println("10th fabonachi term"+febonachi(5));
 		System.out.println("fabonachi term"+Arrays.toString(feb));
 
 	}
