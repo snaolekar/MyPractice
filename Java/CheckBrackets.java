@@ -1,6 +1,8 @@
 import java.util.*;
 /**
+* author: Satyam Naolekar
  * CheckBrackets
+ * Simply checking if expression has balanced set of brackets
  */
  public class CheckBrackets {
     public static void main(String[] args) {

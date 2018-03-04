@@ -1,3 +1,6 @@
+//author : satyam naolekar
+// optimized solution for assending sort of even number and decending sort of odd numbers.
+
 import java.util.*;
 import java.lang.*;
 import java.io.*;

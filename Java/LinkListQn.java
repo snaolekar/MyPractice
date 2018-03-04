@@ -1,5 +1,7 @@
 import java.util.*;
 /**
+ * author: satyam naolekar
+ * Basic linked list use case
  * LinkListQn
  */
 public class LinkListQn {

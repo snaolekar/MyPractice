@@ -1,3 +1,9 @@
+/*
+ * Author : Satyam Naolekar
+ * Implement splitwise algo optimized, to settle debt in group.
+ * debet simplification feature of splitwise
+ * asked in amazon interview.
+*/
 import java.util.* ;
 class Person implements Comparable {
   char id ;

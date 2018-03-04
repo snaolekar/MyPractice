@@ -1,6 +1,7 @@
 import java.util.*;
  /*
- *Prime
+ * author: satyam naolekar
+ * give all prime factors for given number
  */
 public class Prime {
   public static void main(String[] args) {

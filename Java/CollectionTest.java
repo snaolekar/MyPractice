@@ -1,3 +1,6 @@
+// author: satyam naolekar
+// testing different collections in java
+
 import java.util.*;
 import java.util.Map.Entry;
 

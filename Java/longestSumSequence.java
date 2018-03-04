@@ -1,5 +1,7 @@
-public class longestSumSequence {
-	
+// author: satyam naolekar
+// longest sum in an arry with start and end positions
+
+public class longestSumSequence {	
 	public static void main(String[] args) {
 		int[] number={-11,-3,4,-2,3,-6};
 		int maxSum=0 ;

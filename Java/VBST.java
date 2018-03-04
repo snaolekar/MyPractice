@@ -1,3 +1,5 @@
+// author : satyam naolekar
+// another elegent solution to maintain median element while making insertion in BST, algo given by friend.
 class VTree {
   int data ;
   VTree left ;
@@ -79,5 +81,11 @@ public static void main(String[] args) {
   qn.insertAndUpdateMedian(28);
   qn.insertAndUpdateMedian(18);
   qn.insertAndUpdateMedian(17);
+  qn.insertAndUpdateMedian(127);
+  qn.insertAndUpdateMedian(125);
+  qn.insertAndUpdateMedian(12);
+  qn.insertAndUpdateMedian(6);
+  qn.insertAndUpdateMedian(170);
+  qn.insertAndUpdateMedian(19);
 }
 }

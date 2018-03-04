@@ -1,6 +1,8 @@
 import java.util.*;
 import java.lang.*;
 import java.io.*;
+// author : satyam naolekar
+// diagonal traversal of a matrix
 
 class Sprial {
 public static void main(String[] args) {
@@ -46,7 +48,7 @@ public static void main(String[] args) {
             }
          }
          while(dir==1 &&  !(i==n-1 && j==n-1)){
-             //go ginonally up
+             //go diagonally up
              i--;
              j++;
              System.out.print(mat[i][j]+" ");

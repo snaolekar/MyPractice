@@ -1,4 +1,7 @@
 import java.util.*;
+// author : satyam naolekar
+// superstart problem geeks for geeks
+
 public class SuperStar{
     public static void main (String args[]){
 	    Scanner sc= new Scanner(System.in); // Make a note of this

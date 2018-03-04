@@ -1,5 +1,6 @@
 import java.util.* ;
 /**
+ * author : satyam naolekar
  * StrMin
  */
 public class StrMin {

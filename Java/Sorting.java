@@ -1,5 +1,6 @@
 import java.util.*;
-/** Sorting
+/** author : satyam naolekar
+ *Implementation for different sorting algos
  */
 public class  Sorting {
   int mrr[];
@@ -94,7 +95,7 @@ void swap(int arr[],int i, int j){
     arr[j]=temp ;
   }
 
-  //Minmum swaps
+  //Minmum swaps or selection sort
  int findMinIndex(int[] A,int i,int N){
     int min=A[i];
     int minInd=i;

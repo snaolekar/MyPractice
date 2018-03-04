@@ -1,6 +1,11 @@
 import java.util.*;
 /**
- * Graph
+ * author: satyam naolekar
+ * Graph related problems 
+ * BFS
+ * DFS
+ * TOPO (Topological Sort)
+ * MST (Minimum spanning tree)
  */
   class LGraph {
   private int V; // No. of vertices

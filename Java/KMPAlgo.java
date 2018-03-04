@@ -1,6 +1,6 @@
 /**
  * @author snaoleka
- *
+ * implementatin for KMP algo for string pattern matching
  */
 public class KMPAlgo {
 	/**

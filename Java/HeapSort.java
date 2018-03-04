@@ -1,6 +1,7 @@
 import java.util.*;
 /**
- * Hert
+ * author: satyam naolekar
+ * full implementation of heap sort without any advance data strecture
  */
 //assumaxg index from 1 for heap
 //create maxHeap and sort

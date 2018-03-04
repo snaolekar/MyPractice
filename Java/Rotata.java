@@ -1,6 +1,7 @@
 import java.util.*;
 /**
- * Rotate
+ * author: satyam naolekar
+ * to check if given strings are anagram
  */
 public class Rotata {
   public static void rotate(String s1,String s2){

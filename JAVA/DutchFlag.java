@@ -1,6 +1,8 @@
 import java.util.*;
 /**
- * name
+ * author: satyam naolekar
+ * solution to dutch flag problem
+ * sorting 3 numbers in array using binary search or 3 way binary search
  */
 public class DutchFlag {
     public static void main(String[] args) {

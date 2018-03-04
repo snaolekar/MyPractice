@@ -1,3 +1,7 @@
+// author : Satyam Naolekar
+// solution for Alian Dictionary from geeks for geeks 
+// <https://practice.geeksforgeeks.org/problems/alien-dictionary/1>
+
 import java.util.* ;
 /**
  * AlienD

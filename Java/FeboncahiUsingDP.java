@@ -2,6 +2,7 @@ import java.util.Arrays;
 
 /**
  * @author snaolekar
+ * adding dp for factorial problem decrising complexity
  *
  */
 public class FeboncahiUsingDP {

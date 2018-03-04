@@ -1,7 +1,9 @@
 import java.util.* ;
 import java.lang.* ;
 
- /**SumContinious
+ /**
+  * author : satyam naolekar
+  * print maximum continious sum in an array
  */
 public class SumContinious {
 

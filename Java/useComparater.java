@@ -3,6 +3,8 @@ import java.util.Comparator;
 
 /**
  * @author snaolekar
+ * author : satyam naolekar
+ * example use of comparator in java
  *
  */
 public class useComparater {

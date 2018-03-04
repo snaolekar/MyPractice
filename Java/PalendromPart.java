@@ -1,6 +1,8 @@
 import java.util.* ;
 import java.util.*;
 /**
+ * author: satyam naolekar
+ * gives maximum number of palendrom partationing , qn from geeks for geeks
  * PalendromPart
  */
 public class PalendromPart {

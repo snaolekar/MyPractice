@@ -1,8 +1,14 @@
 /**
  * @author snaoleka
- *
+ * author: Satyam Naolekar
+ * Solution for many Binary Search Tree (BST) data strecture problems 
+ ** Inorder, preorder, postorder traversal
+ ** Node insertion in BST
+ ** Check if given tree is BST
+ ** Maintaining the median while insertion 2 solution (2nd is better)
+ ** Some more problem solution mentioned in comments
  */
-
+ 
 class TreeNode
 {
 	int data;
@@ -48,11 +54,13 @@ class TreeNode
 	}
 	
 }
-
+// sample BST class
 public class BSTExample {
 	TreeNode root ;
 	TreeNode medianNode ;
 	int diff ;
+	int size ;
+	int count;
 	
 	public TreeNode getRoot() {
 		return root;
@@ -63,6 +71,8 @@ public class BSTExample {
 	public BSTExample(TreeNode root) {
 		this.root = root;
 		this.medianNode= root;
+		this.size=1;
+		count=0;
 	}
 	public void printMedian(){
 		System.out.println(this.medianNode.data);
@@ -72,6 +82,8 @@ public class BSTExample {
 		this.root = null;
 		this.medianNode = null ;
 		this.diff = 0;
+		this.count=0;
+		this.size=0;
 	}
 	void inOrderTreversal(TreeNode node)
 	{
@@ -137,6 +149,69 @@ public class BSTExample {
 		}
 }
 
+// Maintain median while insertion solution 1
+void addAndUpdateMedian1(int value){
+	if(this.root == null){
+		this.root = new TreeNode(value);
+		this.medianNode = this.root ;
+		this.size = 1;
+		return ;
+	}
+	TreeNode temp = new TreeNode(value);
+	TreeNode traval = this.root;
+	while(true){
+		if(traval.data > temp.data){
+			if(traval.leftChild == null){
+				traval.leftChild = temp ;
+				break ;
+			}
+			else
+				traval = traval.leftChild ;
+		}else{
+			if(traval.rightChild == null){
+				traval.rightChild= temp ;
+				break ;
+			}
+			else
+				traval = traval.rightChild ;
+		}
+	}
+	this.size = this.size + 1;
+	this.count=0;
+	printMedinaInorder(this.root);
+}
+void printMedinaInorder(TreeNode curr){
+if(this.size == 1){
+	System.out.println(root.data);
+	return ;
+}
+//check with mine solution
+if(this.size == 2){
+	System.out.println(root.data);
+	return ;
+}
+else{
+	if(curr != null && (this.count)*2 < this.size){
+		printMedinaInorder(curr.leftChild);
+		this.count++;
+		if(this.size%2==0){
+			if(this.count == this.size/2){
+				// for now
+				System.out.println(curr.data);
+				return ;
+			}
+		}else{
+			if(this.count == this.size/2){
+				System.out.println(curr.data);
+				return ;
+			}
+		}	
+		printMedinaInorder(curr.rightChild);
+	}
+}
+}
+
+// Maintain median while insertion solution 2
 void addAndUpdateMedian(int value){
 	if(this.root == null){
 		this.root = new TreeNode(value);
@@ -270,6 +345,18 @@ int isBST(TreeNode root)
     bst1.addAndUpdateMedian(18);
 		bst1.printMedian();
     bst1.addAndUpdateMedian(17);
+		bst1.printMedian();
+    bst1.addAndUpdateMedian(127);
+		bst1.printMedian();
+    bst1.addAndUpdateMedian(125);
+		bst1.printMedian();
+    bst1.addAndUpdateMedian(12);
+		bst1.printMedian();
+    bst1.addAndUpdateMedian(6);
+		bst1.printMedian();
+    bst1.addAndUpdateMedian(170);
+		bst1.printMedian();
+    bst1.addAndUpdateMedian(19);
 		bst1.printMedian();
 	}
 }

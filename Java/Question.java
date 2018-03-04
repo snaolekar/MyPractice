@@ -1,4 +1,17 @@
 import java.util.*;
+/*
+* author : satyam naolekar
+* solution to many question related to tree normally asked in amazon
+* print extream nodes of a tree
+* print vertical order
+* print right view
+* print left view
+* mirror view of a tree
+* spiral view of a tree
+* level order traversal of a tree
+* max sum of atree in 1 path
+* Diameter of a tree
+*/
 
 class ANode {
     int data;

@@ -1,6 +1,9 @@
 import java.util.* ;
-/*Vhiclel
+/*
+ * Author: satyam naolekar
+ * Design question for parking lot, not complete but gives basic idea
  */
+ 
 //devision of spots
 enum SIZE{
     LARGE,

@@ -3,6 +3,10 @@ import java.util.Scanner;
 
 /**
  * @author snaolekar
+ * author: satyam naolekar
+ * qn asked in flipkart onsite interview, you need to arange ships in grid with perticular properties
+ * game played between 2 palyers and player guess the coordinate if ship is there it gets the hit
+ * a playes who lost all his ships will loss in the game.
  *
  */
 class Ships

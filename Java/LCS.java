@@ -1,5 +1,7 @@
 import java.util.*;
 /**
+ * Author: satyam naolekar
+ * Implementation for Longest common subsequence 
  * LCS
  */
 public class LCS {

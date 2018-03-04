@@ -1,7 +1,8 @@
-import java.util.*;
 /**
- * BuildTree
+ * author : Satyam Naolekar
+ * BuildTree from text stream
  */
+import java.util.*;
 class Node {
   int data;
   Node left;

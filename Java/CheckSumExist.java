@@ -1,3 +1,7 @@
+/*
+* Author: satyam naolekar
+* optimized algo to check if given sum exist in an array
+*/
 import java.util.*;
 import java.lang.*;
 import java.io.*;

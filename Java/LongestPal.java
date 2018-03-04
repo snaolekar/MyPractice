@@ -1,5 +1,7 @@
 import java.util.*;
-/**LongestPal
+/**
+ * author: satyam naolekar
+ * prints the longest palendrom in string
  */
 public class LongestPal {
   public static void main (String[] args) {

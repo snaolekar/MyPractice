@@ -1,4 +1,6 @@
 /**
+ * author: saytam naolekar
+ * inplace merge of 2 sorted array without extra space
  * MERGE2
  */
 public class MERGE2 {

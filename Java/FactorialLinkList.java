@@ -1,6 +1,7 @@
 import java.util.*;
 /**
  * @author snaoleka
+ * calculate factorial using linked list
  *
  */
 public class FactorialLinkList {

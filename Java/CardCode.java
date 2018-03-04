@@ -1,5 +1,8 @@
 /**
  * Created by satyam on 26/08/17.
+ * author: satyam naolekar
+ * don't know the question but it was hacker rank challange on arranging deck of cards in 2 rows an multiplying face values
+ * will update the file with full question as I get time.
  */
 
 import java.util.*;

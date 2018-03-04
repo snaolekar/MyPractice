@@ -1,7 +1,8 @@
+//author : satyam naolekar
+// prints solution to 8 queen problem through backtracking
 import java.util.*;
 import java.lang.*;
 import java.io.*;
-
 class Queen {
     static boolean isSafe(int[] solution, int index,int N){
         for(int i=0;i<N;i++){

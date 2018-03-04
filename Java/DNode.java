@@ -1,3 +1,7 @@
+//author: satyam naolekar
+// printing bottom view of a tree
+// solution to : https://practice.geeksforgeeks.org/problems/bottom-view-of-binary-tree/1
+
 import java.util.* ;
 import java.util.Map.Entry ;
 public class DNode{

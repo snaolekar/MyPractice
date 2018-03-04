@@ -1,6 +1,7 @@
 import java.util.*;
 /**
- * Peute
+ * author: satyam naolekar
+ * Prints all the permutation of given string.
  */
 public class Permute {
 

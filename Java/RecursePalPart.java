@@ -1,6 +1,7 @@
 import java.util.*;
 /**
- * RecursePalPart
+ * author : satyam naolekar
+ * recursive soltion for palendrom partationing, easy and correct the iterative one is not correct for all cases
  */
 public class RecursePalPart {
 

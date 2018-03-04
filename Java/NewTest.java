@@ -1,3 +1,6 @@
+//author: satyam naolekar
+// prints maximum length of non releating characters optimized.
+
 import java.util.*;
 class NewTest{
   public static void main(String[] args) {
