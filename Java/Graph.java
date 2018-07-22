@@ -93,6 +93,7 @@ import java.util.*;
 
 public class Graph {
   static int V=5;
+
   static int minIndex(int key[], Boolean[] visited){
     int min= Integer.MAX_VALUE ;
     int index=-1;
@@ -104,6 +105,7 @@ public class Graph {
     }
     return index;
   }
+  
   static void printMST(int graph[][]){
     int key[]= new int[V];
     int linkSet[]= new int[V];
@@ -112,21 +114,22 @@ public class Graph {
       key[i]=Integer.MAX_VALUE ;
       visited[i]=false;
     }
-      //choosing 0 as stating node on tree
-      linkSet[0]=-1;
-      key[0]=0;
-      for(int i=1;i<V;i++){
-        int u= minIndex(key,visited);
-        visited[u]=true ;
-        for(int v=0;v<V;v++){
-          if(graph[u][v] >0 && graph[u][v]<key[v] && !visited[v]){
-            linkSet[v]=u;
-            key[v]=graph[u][v];
-          }
+    //choosing 0 as stating node on tree
+    linkSet[0]=-1;
+    key[0]=0;
+    for(int i=1;i<V;i++){
+      int u= minIndex(key,visited);
+      visited[u]=true ;
+      for(int v=0;v<V;v++){
+        if(graph[u][v] >0 && graph[u][v]<key[v] && !visited[v]){
+          linkSet[v]=u;
+          key[v]=graph[u][v];
         }
       }
-      printTree(linkSet);
+    }
+    printTree(linkSet);
   }
+  
   static void printTree(int [] linkSet){
     for(int i=1;i<V;i++)
       System.out.println(linkSet[i]+"--"+i);
@@ -151,6 +154,7 @@ public class Graph {
       visited[lp]=false;
     g.DFS(0,visited);                   
     System.out.println();
+    
     LGraph g1 = new LGraph(4);
     g1.addEdge(0, 1);
     g1.addEdge(0, 2);
@@ -159,8 +163,9 @@ public class Graph {
     g1.addEdge(2, 3);
     g1.addEdge(3, 3);
     for(int lp=0;lp<4;lp++)
-    visited[lp]=false;
+      visited[lp]=false;
     g1.BFS(0,visited);                   
+    
     LGraph g2 = new LGraph(4);
     g2.addEdge(0, 1);
     g2.addEdge(0, 2);
@@ -169,10 +174,10 @@ public class Graph {
     g2.addEdge(2, 3);
     g2.addEdge(3, 3);
     for(int lp=0;lp<4;lp++)
-    visited[lp]=false;
+      visited[lp]=false;
     Stack<Integer>tp= new Stack<Integer>();
     g2.TOPO(0,visited,tp);
-      System.out.println("..TOPOLogical Sorting...");
+    System.out.println("..TOPOLogical Sorting...");
     while(!tp.isEmpty()){
       System.out.print(tp.pop()+" ");
     }
