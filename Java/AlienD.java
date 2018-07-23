@@ -42,8 +42,8 @@ class AGraph{
 public class AlienD {
 
   public static void main(String[] args) {
-    //String[] input={ "baa", "abcd", "abca", "cab", "cad" };
-    String[] input={ "caa", "aaa", "aab" };
+    String[] input={ "baa", "abcd", "abca", "cab", "cad" };
+    //String[] input={ "caa", "aaa", "aab" };
     AGraph G= new AGraph();
     for (int j=1;j<input.length;j++) {
       char []item1 = input[j-1].toCharArray();

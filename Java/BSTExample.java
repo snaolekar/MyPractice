@@ -8,6 +8,7 @@
  ** Maintaining the median while insertion 2 solution (2nd is better)
  ** Some more problem solution mentioned in comments
  */
+ import java.util.Stack ;
  
 class TreeNode
 {
@@ -78,13 +79,71 @@ public class BSTExample {
 		System.out.println(this.medianNode.data);
 	}
 	public BSTExample() {
-		super();
 		this.root = null;
 		this.medianNode = null ;
 		this.diff = 0;
 		this.count=0;
 		this.size=0;
 	}
+	
+	public void InOrderUsingStack(){
+		TreeNode tNode = this.root ;
+		int Count=0;
+		if(tNode==null)
+			return ;
+		Stack<TreeNode> st= new Stack<>();
+		st.push(tNode);
+		//push all left subtree of root
+		while(tNode.leftChild != null){
+			tNode= tNode.leftChild ;
+			st.push(tNode);
+		}
+		//pop the left most node
+		while(!st.isEmpty())
+		{
+			tNode= st.pop();
+			Count++;
+			System.out.println(tNode.getData());
+			if(tNode.rightChild !=null){
+				tNode = tNode.rightChild;
+				st.push(tNode);
+				while(tNode.leftChild != null){
+					tNode= tNode.leftChild ;
+					st.push(tNode);
+				}
+			}
+		}
+		System.out.println("Count = "+Count);
+	}
+
+	void inOrderMorris(){
+		TreeNode current, pre ;
+		current = this.root ;
+		if(current == null)
+			return ;
+			while(current != null){
+				if(current.leftChild == null){
+					System.out.println(" "+current.getData());
+					current= current.rightChild ;
+				}
+				else{
+					pre = current.leftChild ;
+					while(pre.rightChild !=null && pre.rightChild !=current)
+						pre = pre.rightChild;
+
+					if(pre.rightChild == null){ // 
+						pre.rightChild = current ;
+						current = current.leftChild ;
+					}
+					else{// correcting the tree
+						System.out.println(" "+current.getData());
+						current= current.rightChild ;
+						pre.rightChild = null ;
+					}
+				}
+			}
+	}
+
 	void inOrderTreversal(TreeNode node)
 	{
 		if(node!=null)
@@ -180,6 +239,7 @@ void addAndUpdateMedian1(int value){
 	this.count=0;
 	printMedinaInorder(this.root);
 }
+
 void printMedinaInorder(TreeNode curr){
 if(this.size == 1){
 	System.out.println(root.data);
@@ -264,6 +324,7 @@ TreeNode getPredecessor(TreeNode node){
 		node= node.parent ;
 	return node.parent;	
 }
+
 TreeNode getSuccessor(TreeNode node){
 	if(node.rightChild != null)
 		return leftMost(node.rightChild);
@@ -272,6 +333,7 @@ TreeNode getSuccessor(TreeNode node){
 		node= node.parent ;
 	return node.parent;	
 }
+
 TreeNode rightMost(TreeNode node){
 	if(node.rightChild == null)
 		return node ;
@@ -287,7 +349,6 @@ TreeNode leftMost(TreeNode node){
 Boolean BSTHelper(TreeNode root, int min, int max){
 	if(root == null)
 		return true;
-
 	//System.out.println("MIN:"+min+":MAX:"+max);
 	if(root.data < min || root.data > max)
 		return false;
@@ -300,6 +361,7 @@ int isBST(TreeNode root)
 		return 1;
 	return 0;
 }
+
 	/**
 	 * @param args
 	 */
@@ -317,6 +379,12 @@ int isBST(TreeNode root)
     System.out.println("Inorder Traversal...");
     bst.inOrderTreversal(bst.getRoot());
     System.out.println("-----------------------");
+    System.out.println("Inorder Traversal Using Stack...");
+    bst.InOrderUsingStack();
+		System.out.println("-----------------------");
+    System.out.println("Inorder Traversal with no memory..");
+    bst.inOrderMorris();
+		System.out.println("-----------------------");
     System.out.println("Preorder Traversal...");
     bst.preOrderTreversal(bst.getRoot());
     System.out.println("-----------------------");
