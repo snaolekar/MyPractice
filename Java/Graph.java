@@ -8,14 +8,11 @@ import java.util.*;
  * MST (Minimum spanning tree)
  */
   class LGraph {
-  private int V; // No. of vertices
-
   // Array  of lists for Adjacency List Representation
   private LinkedList<Integer> adj[];
 
   // Constructor
   LGraph(int v) {
-    V = v;
     adj = new LinkedList [v];
     for (int i = 0; i < v; ++i)
       adj[i] = new LinkedList<Integer>();
@@ -25,22 +22,11 @@ import java.util.*;
   void addEdge(int v, int w) {
     adj[v].add(w); // Add w to v's list.
   }
-
   public void BFS(int v, Boolean visited[]){
     Queue<Integer> q= new LinkedList<Integer>();
+    q.add(v);
     System.out.print(v + " ");
-    visited[v] = true;
-    if (adj[v].size() == 0) {
-      return;
-    }
-    while(adj[v].size() >0){
-      int t= adj[v].remove();
-      if(!visited[t]){
-        q.add(t);
-        System.out.print(t + " ");
-        visited[t]=true;
-      }
-    }
+    visited[v]=true;
     while(!q.isEmpty()){
     int next = q.remove();
     while(adj[next].size() >0){
@@ -53,6 +39,7 @@ import java.util.*;
     }
     }
   }
+  
   public void TOPO(int v , Boolean visited[],Stack<Integer>st){
     visited[v]=true;
     while(adj[v].size()>0){
@@ -62,32 +49,30 @@ import java.util.*;
     }
     st.push(v);
   }
+
   public void DFS(int v, Boolean visited[]) {
     Stack<Integer> s = new Stack<Integer>();
-    System.out.print(v + " ");
-    s.add(v);
-    visited[v] = true;
     if (adj[v].size() == 0) {
       return;
     }
-    int next = adj[v].remove();
-    Boolean fromStack = false;
-    while (!s.isEmpty()) {
-      if (!fromStack)
-        s.add(next);
-      if (!visited[next]) {
+    int next=v ;
+    s.add(v);//fist entry of root node
+    boolean needpop= true ;
+    while(!s.isEmpty()) {
+      if(needpop)
+        next = s.pop();
+      if(!visited[next]) {
         System.out.print(next + " ");
         visited[next] = true;
       }
       if (adj[next].size() > 0) {
+        s.add(next);
         next = adj[next].remove();
-        fromStack = false;
-      } else {
-        next = s.pop();
-        fromStack = true;
+        needpop= false ;
+      }else{
+        needpop=true;
       }
     }
-
   }
 }
 
@@ -142,30 +127,34 @@ public class Graph {
                     {6, 8, 0, 0, 9},
                     {0, 5, 7, 9, 0}};
     printMST(graph);
-    LGraph g = new LGraph(4);
+    LGraph g = new LGraph(5);
             g.addEdge(0, 1);
-            g.addEdge(0, 2);
+            g.addEdge(0, 3);
+            g.addEdge(0, 4);
             g.addEdge(1, 2);
-            g.addEdge(2, 0);
             g.addEdge(2, 3);
             g.addEdge(3, 3);
     Boolean visited[]=new Boolean[4];
-    for(int lp=0;lp<4;lp++)
-      visited[lp]=false;
-    g.DFS(0,visited);                   
+    Boolean visited1[]=new Boolean[5];
+    for(int lp=0;lp<5;lp++)
+      visited1[lp]=false;
+    System.out.println("DFS ....");
+    g.DFS(0,visited1);                   
     System.out.println();
     
-    LGraph g1 = new LGraph(4);
+    LGraph g1 = new LGraph(5);
     g1.addEdge(0, 1);
-    g1.addEdge(0, 2);
+    g1.addEdge(0, 3);
+    g1.addEdge(0, 4);
     g1.addEdge(1, 2);
-    g1.addEdge(2, 0);
     g1.addEdge(2, 3);
     g1.addEdge(3, 3);
-    for(int lp=0;lp<4;lp++)
-      visited[lp]=false;
-    g1.BFS(0,visited);                   
-    
+    for(int lp=0;lp<5;lp++)
+      visited1[lp]=false;
+    System.out.println(".. BFS Sorting...");
+    g1.BFS(0,visited1);                   
+    System.out.println("....");
+
     LGraph g2 = new LGraph(4);
     g2.addEdge(0, 1);
     g2.addEdge(0, 2);

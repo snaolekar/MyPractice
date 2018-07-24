@@ -23,11 +23,9 @@ public class CheckSumExist {
             for(;k<size;k++){
                 rsum+=arr[k];
                 end=k;
-                if(rsum > sum){
-                    while (rsum > sum){
-                        rsum= rsum - arr[start];
-                        start++;
-                    }
+                while (rsum > sum){
+                    rsum= rsum - arr[start];
+                    start++;
                 }
                 if(rsum==sum){
                     System.out.println((start+1)+" "+(end+1));

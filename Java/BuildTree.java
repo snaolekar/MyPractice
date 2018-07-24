@@ -58,8 +58,8 @@ static Node buildTree(){
   if(n==1)
     return root; 
  
-    if(index<n && location[index]=='N'){
-      root.left= buildTree();
+  if(index<n && location[index]=='N'){
+    root.left= buildTree();
   }
   else if (index < n)
     root.left= new Node(tree[index++]);

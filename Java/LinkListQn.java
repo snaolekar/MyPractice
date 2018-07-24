@@ -6,8 +6,8 @@ import java.util.*;
  */
 public class LinkListQn {
 
-  static LinkedList <Integer> l1=new LinkedList<Integer>();
-  static LinkedList <Integer> l2=new LinkedList<Integer>();
+  static LinkedList <Integer> l1=new LinkedList<>();
+  static LinkedList <Integer> l2=new LinkedList<>();
 
   public static void main(String[] args) {
   l1.add(3);

@@ -121,27 +121,27 @@ public class BSTExample {
 		current = this.root ;
 		if(current == null)
 			return ;
-			while(current != null){
-				if(current.leftChild == null){
+		while(current != null){
+			if(current.leftChild == null){
+				System.out.println(" "+current.getData());
+				current= current.rightChild ;
+			}
+			else{
+				pre = current.leftChild ;
+				while(pre.rightChild !=null && pre.rightChild !=current)
+					pre = pre.rightChild;
+
+				if(pre.rightChild == null){ // 
+					pre.rightChild = current ;
+					current = current.leftChild ;
+				}
+				else{// correcting the tree
 					System.out.println(" "+current.getData());
 					current= current.rightChild ;
-				}
-				else{
-					pre = current.leftChild ;
-					while(pre.rightChild !=null && pre.rightChild !=current)
-						pre = pre.rightChild;
-
-					if(pre.rightChild == null){ // 
-						pre.rightChild = current ;
-						current = current.leftChild ;
-					}
-					else{// correcting the tree
-						System.out.println(" "+current.getData());
-						current= current.rightChild ;
-						pre.rightChild = null ;
-					}
+					pre.rightChild = null ;
 				}
 			}
+		}
 	}
 
 	void inOrderTreversal(TreeNode node)
@@ -318,7 +318,7 @@ void addAndUpdateMedian(int value){
 
 TreeNode getPredecessor(TreeNode node){
 	if(node.leftChild != null)
-		return rightMost(node.leftChild);
+		return rightMost1(node.leftChild);
 	int val = node.data ;
 	while(node.parent.data > val)
 		node= node.parent ;
@@ -327,7 +327,7 @@ TreeNode getPredecessor(TreeNode node){
 
 TreeNode getSuccessor(TreeNode node){
 	if(node.rightChild != null)
-		return leftMost(node.rightChild);
+		return leftMost1(node.rightChild);
 	int val = node.data ;
 	while(node.parent.data < val)
 		node= node.parent ;
@@ -340,10 +340,22 @@ TreeNode rightMost(TreeNode node){
 	return rightMost(node.rightChild);
 }
 
+TreeNode rightMost1(TreeNode node){
+	while(node.rightChild != null)
+		node= node.rightChild;
+	return node;
+}
+
 TreeNode leftMost(TreeNode node){
 	if(node.leftChild == null)
 		return node ;
 	return leftMost(node.leftChild);
+}
+
+TreeNode leftMost1(TreeNode node){
+	while(node.leftChild != null)
+		node= node.leftChild ;
+	return node;
 }
 
 Boolean BSTHelper(TreeNode root, int min, int max){

@@ -6,7 +6,7 @@ import java.util.*;
  */
  public class CheckBrackets {
     public static void main(String[] args) {
-        Stack <Character>s = new Stack<Character>();
+        Stack <Character>s = new Stack<>();
         Scanner sc = new Scanner(System.in);
         int loop = sc.nextInt();
         sc.nextLine(); // skipping the line for the input number

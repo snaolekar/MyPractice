@@ -6,21 +6,21 @@ import java.util.Map.Entry;
 
 public class CollectionTest {
   public static void main(String[] args) {
-    List<Integer> l = new ArrayList<Integer>();
-    Map<Integer,String> m = new TreeMap<Integer,String>();
-    Set<String> s = new TreeSet<String>();
+    List<Integer> l = new ArrayList<>();
+    Map<Integer,String> m = new TreeMap<>();
+    Set<String> s = new TreeSet<>();
      
-    l.add(new Integer(1));
-    l.add(new Integer(4));
-    l.add(new Integer(3));
-    l.add(new Integer(2));
-    l.add(new Integer(3));
+    l.add(1);
+    l.add(4);
+    l.add(3);
+    l.add(2);
+    l.add(3);
      
-    m.put(new Integer(1), "A");
-    m.put(new Integer(4), "B");
-    m.put(new Integer(3), "C");
-    m.put(new Integer(2), "D");
-    m.put(new Integer(3), "E");
+    m.put(1, "A");
+    m.put(4, "B");
+    m.put(3, "C");
+    m.put(2, "D");
+    m.put(3, "E");
      
     System.out.println("Adding to Set");
     System.out.println("Adding 1: " + s.add("bill"));
