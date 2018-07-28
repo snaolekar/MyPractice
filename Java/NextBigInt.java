@@ -16,6 +16,7 @@ public class NextBigInt{
       arr1.add(num%10);
       num=num/10;
     }
+    sc.close();
     Collections.reverse(arr1);
     int [] arr= arr1.stream().mapToInt(i -> i).toArray();
     int n= arr.length-1;

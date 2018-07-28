@@ -75,7 +75,6 @@ public class StrMin {
                 System.out.print(ch[j]);
         }
         System.out.println();
-
         sc.close();
     }
 }

@@ -26,8 +26,8 @@ static void addTxn(Person lender, Person borrower, int value){
 }
 
 static void printMinTrans(List<Person>participents){
-  PriorityQueue <Person>borrower = new PriorityQueue<>(5); // min Heap
-  PriorityQueue <Person>lender = new PriorityQueue<>(5,Collections.reverseOrder()); //maxHeap
+  PriorityQueue <Person>borrower = new PriorityQueue<>(); // min Heap
+  PriorityQueue <Person>lender = new PriorityQueue<>(Collections.reverseOrder()); //maxHeap
   for (Person p : participents){
     if(p.balance < 0)
     borrower.add(p);
